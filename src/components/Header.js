@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
   const cars = useSelector(selectCars);
-  console.log(cars);
+  // console.log(cars);
   return (
     <Container>
       {/* // Because our logo will have a link thats why we are using a tag */}
