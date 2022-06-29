@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Fade from "react-reveal/Fade";
 function Section({
   title,
   description,
@@ -9,16 +10,20 @@ function Section({
 }) {
   return (
     <Wrap bgImage={backgroundImg}>
-      <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </ItemText>
+      <Fade bottom>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
+
       <Buttons>
-        {" "}
-        <ButtonGroup>
-          <LeftButton>{LeftBtnText}</LeftButton>
-          {RightBtnText && <RightButton>{RightBtnText}</RightButton>}
-        </ButtonGroup>
+        <Fade bottom>
+          <ButtonGroup>
+            <LeftButton>{LeftBtnText}</LeftButton>
+            {RightBtnText && <RightButton>{RightBtnText}</RightButton>}
+          </ButtonGroup>
+        </Fade>{" "}
         <DownArrow src="/images/down-arrow.svg"></DownArrow>
       </Buttons>
     </Wrap>
@@ -30,10 +35,11 @@ export default Section;
 // The full form of VW is viewport width. It works like the percentage unit. Specifying 10vw is equivalent to occupying 10% of entire visible screen width.
 // The full form of VH is viewport height. It works like the percentage unit as well. Specifying 10vh is equivalent to occupying 10% of entire visible screen height.
 const Wrap = styled.div`
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  background-positon: center;
+  background-position: center;
   background-repeat: no-repeat;
   background-image: url("/images/model-s.jpg");
   display: flex;
